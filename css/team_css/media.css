@@ -1,0 +1,125 @@
+:root {
+    --white: #fff;
+    --black: #000;
+    --grey: rgb(255, 255, 255, .5);
+    --blur-grey: rgb(255, 255, 255, .1);
+    --purple: #671AE4;
+    --pink: #B75CFF;
+    --body-gradient: linear-gradient(113.49deg, #984D38 -30.3%, #181E41 58.12%);
+    --gradient: linear-gradient(214.02deg, var(--pink) 6.04%, var(--purple) 92.95%);
+    --gradient-hover: linear-gradient(214.02deg, var(--purple) 6.04%, var(--pink) 92.95%);
+    --animation-transition: .4s;
+}
+
+body.lock {
+    overflow: hidden;
+}
+
+/* Header */
+
+@media (max-width: 600px) {
+    .header {}
+
+    .header__burger {
+        position: relative;
+        z-index: 10;
+        width: 50px;
+        height: 19px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .header__burger span {
+        position: absolute;
+        top: calc(50% - 1px);
+        width: 50%;
+        height: 2px;
+
+        background-color: var(--white);
+        border-radius: 2px;
+        transition: var(--animation-transition);
+    }
+
+    .header__burger::before,
+    .header__burger::after {
+        content: '';
+        position: absolute;
+        width: 50%;
+        height: 2px;
+
+        background-color: var(--white);
+        border-radius: 2px;
+        transition: var(--animation-transition);
+    }
+
+    .header__burger::before {
+        top: 0;
+    }
+
+    .header__burger::after {
+        bottom: 0;
+    }
+
+    .header__burger.active span {
+        transform: scale(0);
+        transition: var(--animation-transition);
+    }
+
+    .header__burger.active::before {
+        transform: rotate(45deg);
+        top: 9px;
+        transition: var(--animation-transition);
+    }
+
+    .header__burger.active::after {
+        transform: rotate(-45deg);
+        bottom: 9px;
+        transition: var(--animation-transition);
+    }
+
+    .header__nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 1;
+        width: 250px;
+        height: 100%;
+        background: #322e42fd;
+        transition: var(--animation-transition);
+    }
+
+    .header__nav.active {
+        right: 0;
+    }
+
+    .header__menu {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+
+        margin-top: 70px;
+    }
+
+    .header__link {
+        display: block;
+
+        padding: 10px 0px 10px 25px;
+    }
+
+    .header__link:hover {
+        text-decoration: none;
+    }
+
+    .header__link_btn {
+        max-width: 200px;
+        margin: 0 auto;
+
+        display: block;
+
+        text-align: center;
+        padding: 10px 0px;
+    }
+}
